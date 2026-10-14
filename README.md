@@ -168,7 +168,3 @@ El proyecto cuenta con configuración lista para desplegar en **Render**:
 4. Haz clic en **Create Web Service**.
 
 ---
-
-## 🎬 Material de Apoyo
-- 📄 **[Guion para Video Explicativo (<= 5 mins)](./GUION_VIDEO_CORTO.md)**: Libreto detallado para la presentación y grabación de la solución.
-- 📄 **[Guía de Despliegue Multi-Plataforma](./DEPLOYMENT_GUIDE.md)**: Instrucciones para AWS, Azure, Railway y Netlify.
