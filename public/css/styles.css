@@ -1,0 +1,315 @@
+/* ================================================
+   MINICORE - Sistema de Comisiones
+   Estilos simples y limpios
+   ================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a { text-decoration: none; color: #3b5bdb; }
+
+/* ===== HEADER ===== */
+.header {
+    background-color: #1e293b;
+    color: white;
+    padding: 14px 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.logo { font-size: 1.3rem; font-weight: 700; color: white; }
+.logo:hover { color: #93c5fd; }
+
+.nav { display: flex; gap: 6px; }
+
+.nav-link {
+    color: #cbd5e1;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+.nav-link:hover, .nav-link.active {
+    background: rgba(255,255,255,0.15);
+    color: white;
+}
+
+/* ===== MAIN ===== */
+.main-content { flex: 1; padding: 30px 0; }
+
+/* ===== HERO ===== */
+.hero {
+    text-align: center;
+    padding: 40px 0 30px;
+}
+.hero h1 { font-size: 2rem; color: #1e293b; margin-bottom: 8px; }
+.hero p  { color: #64748b; font-size: 1rem; margin-bottom: 20px; }
+
+/* ===== STATS ===== */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.stat-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.stat-card .icon  { font-size: 1.8rem; margin-bottom: 8px; }
+.stat-card .num   { font-size: 1.8rem; font-weight: 700; color: #1e293b; }
+.stat-card .label { color: #64748b; font-size: 0.85rem; margin-top: 4px; }
+
+/* ===== PAGE HEADER ===== */
+.page-title {
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #e2e8f0;
+}
+.page-title h1 { font-size: 1.6rem; color: #1e293b; }
+.page-title p  { color: #64748b; margin-top: 4px; font-size: 0.9rem; }
+
+/* ===== CARD / BOX ===== */
+.card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* ===== FORM ===== */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 0.95rem;
+    color: #1e293b;
+    background: #f8fafc;
+    transition: border-color 0.2s;
+}
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: #3b5bdb;
+    background: white;
+}
+
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.btn {
+    padding: 9px 22px;
+    border-radius: 7px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.85; }
+.btn-primary  { background: #3b5bdb; color: white; }
+.btn-secondary { background: #e2e8f0; color: #475569; text-decoration: none; display: inline-block; }
+
+/* ===== REGLAS GRID ===== */
+.reglas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+}
+.regla-item {
+    border-left: 4px solid #3b5bdb;
+    background: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 0 8px 8px 0;
+}
+.regla-item:nth-child(1) { border-color: #10b981; }
+.regla-item:nth-child(2) { border-color: #3b5bdb; }
+.regla-item:nth-child(3) { border-color: #7c3aed; }
+.regla-item:nth-child(4) { border-color: #f59e0b; }
+
+.regla-nombre { font-weight: 600; font-size: 0.9rem; color: #1e293b; }
+.regla-pct    { font-size: 1.2rem; font-weight: 700; float: right; color: #3b5bdb; }
+.regla-rango  { font-size: 0.8rem; color: #64748b; margin-top: 4px; clear: both; }
+
+/* ===== RESUMEN ===== */
+.resumen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+}
+.resumen-item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px;
+}
+.resumen-item .label { font-size: 0.78rem; color: #64748b; margin-bottom: 4px; }
+.resumen-item .valor { font-size: 1.2rem; font-weight: 700; color: #1e293b; }
+.resumen-item.highlight { background: #eff6ff; border-color: #bfdbfe; }
+.resumen-item.highlight .valor { color: #1d4ed8; }
+
+/* ===== COMISION CARD ===== */
+.comision-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 14px;
+}
+.comision-card h4 { font-size: 1.05rem; color: #1e293b; margin-bottom: 2px; }
+.comision-card .email { color: #64748b; font-size: 0.82rem; margin-bottom: 14px; }
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.stat-item .label { font-size: 0.78rem; color: #64748b; }
+.stat-item .valor { font-size: 0.95rem; font-weight: 600; color: #1e293b; }
+.stat-item.green  .valor { color: #059669; font-size: 1.1rem; }
+
+.nota {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.82rem;
+    color: #92400e;
+    margin-bottom: 10px;
+}
+
+/* ===== DETALLE VENTAS ===== */
+details summary {
+    cursor: pointer;
+    color: #3b5bdb;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 6px 0;
+}
+.ventas-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.88rem;
+}
+.ventas-tabla th {
+    background: #f1f5f9;
+    padding: 8px 10px;
+    text-align: left;
+    color: #475569;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+}
+.ventas-tabla td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+}
+
+/* ===== TABLA GENERAL ===== */
+.table-box { background: white; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th { background: #f1f5f9; padding: 12px 16px; text-align: left; font-size: 0.82rem; color: #475569; text-transform: uppercase; }
+.data-table td { padding: 12px 16px; border-bottom: 1px solid #f8fafc; }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: #f8fafc; }
+
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.badge-green  { background: #d1fae5; color: #065f46; }
+.badge-blue   { background: #dbeafe; color: #1e40af; }
+.badge-gray   { background: #f1f5f9; color: #475569; }
+
+/* ===== ERROR / ALERT ===== */
+.alert-error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #991b1b;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+}
+.sin-resultados {
+    text-align: center;
+    padding: 40px;
+    color: #64748b;
+}
+.sin-resultados h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.error-page { text-align: center; padding: 60px 0; }
+.error-page .code { font-size: 4rem; font-weight: 700; color: #cbd5e1; }
+.error-page h1  { font-size: 1.4rem; margin-bottom: 10px; }
+.error-page p   { color: #64748b; margin-bottom: 20px; }
+
+/* ===== FOOTER ===== */
+.footer {
+    background: #1e293b;
+    color: #94a3b8;
+    padding: 18px 0;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+    .header-content { flex-direction: column; text-align: center; }
+    .nav { justify-content: center; flex-wrap: wrap; }
+    .btn-row { flex-direction: column; }
+    .btn { text-align: center; }
+    .hero h1 { font-size: 1.5rem; }
+}

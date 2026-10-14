@@ -1,0 +1,148 @@
+<%- include('partials/header') %>
+
+<div class="page-title">
+    <h1>⚡ Cálculo de Comisiones</h1>
+    <p>Filtra por rango de fechas y calcula las comisiones de tus vendedores.</p>
+</div>
+
+<!-- Reglas vigentes -->
+<div class="card">
+    <strong>📊 Reglas de comisión vigentes:</strong>
+    <div class="reglas-grid" style="margin-top:12px;">
+        <% reglas.forEach(function(regla) { %>
+            <div class="regla-item">
+                <span class="regla-nombre"><%= regla.nombre %></span>
+                <span class="regla-pct"><%= regla.porcentaje_comision %>%</span>
+                <div class="regla-rango">
+                    $<%= regla.monto_min %> – <%= regla.monto_max ? '$' + regla.monto_max : 'sin límite' %>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<!-- Formulario -->
+<div class="card">
+    <form action="/comisiones" method="POST">
+        <div class="form-grid">
+            <div class="campo">
+                <label for="fecha_inicio">📅 Fecha inicio</label>
+                <input type="date" id="fecha_inicio" name="fecha_inicio"
+                       value="<%= filtros.fecha_inicio %>" required>
+            </div>
+            <div class="campo">
+                <label for="fecha_fin">📅 Fecha fin</label>
+                <input type="date" id="fecha_fin" name="fecha_fin"
+                       value="<%= filtros.fecha_fin %>" required>
+            </div>
+            <div class="campo">
+                <label for="vendedor_id">👤 Vendedor (opcional)</label>
+                <select id="vendedor_id" name="vendedor_id">
+                    <option value="">Todos los vendedores</option>
+                    <% vendedores.forEach(function(v) { %>
+                        <option value="<%= v.id %>"
+                            <%= filtros.vendedor_id == v.id ? 'selected' : '' %>>
+                            <%= v.nombre %>
+                        </option>
+                    <% }); %>
+                </select>
+            </div>
+        </div>
+        <div class="btn-row">
+            <button type="submit" class="btn btn-primary">🧮 Calcular</button>
+            <a href="/comisiones" class="btn btn-secondary">↩ Limpiar</a>
+        </div>
+    </form>
+</div>
+
+<!-- Error -->
+<% if (error) { %>
+    <div class="alert-error">❌ <%= error %></div>
+<% } %>
+
+<!-- Resultados -->
+<% if (resultado) { %>
+
+    <!-- Resumen -->
+    <div class="card">
+        <strong>📈 Resumen del período</strong>
+        <div class="resumen-grid">
+            <div class="resumen-item">
+                <div class="label">Vendedores con ventas</div>
+                <div class="valor"><%= resultado.resumen.total_vendedores %></div>
+            </div>
+            <div class="resumen-item">
+                <div class="label">Ventas encontradas</div>
+                <div class="valor"><%= resultado.resumen.ventas_encontradas %></div>
+            </div>
+            <div class="resumen-item">
+                <div class="label">Total en ventas</div>
+                <div class="valor">$<%= resultado.resumen.total_ventas_periodo.toFixed(2) %></div>
+            </div>
+            <div class="resumen-item highlight">
+                <div class="label">Total comisiones a pagar</div>
+                <div class="valor">$<%= resultado.resumen.total_comision_general.toFixed(2) %></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detalle por vendedor -->
+    <% if (resultado.comisiones.length > 0) { %>
+        <h3 style="margin-bottom:14px; color:#1e293b;">💰 Detalle por vendedor</h3>
+        <% resultado.comisiones.forEach(function(c) { %>
+            <div class="comision-card">
+                <h4>👤 <%= c.vendedor.nombre %></h4>
+                <p class="email"><%= c.vendedor.email %></p>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <div class="label">Total ventas del período</div>
+                        <div class="valor">$<%= c.total_ventas.toFixed(2) %></div>
+                    </div>
+                    <div class="stat-item green">
+                        <div class="label">Comisión calculada</div>
+                        <div class="valor">$<%= c.comision_total.toFixed(2) %></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="label">Regla aplicada</div>
+                        <div class="valor"><%= c.regla_aplicada.nombre %> (<%= c.regla_aplicada.porcentaje_comision %>%)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="label">N° de ventas</div>
+                        <div class="valor"><%= c.ventas.length %></div>
+                    </div>
+                </div>
+                <div class="nota">📝 <%= c.nota_calculo %></div>
+                <details>
+                    <summary>Ver detalle de ventas (<%= c.ventas.length %>)</summary>
+                    <table class="ventas-tabla">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Producto</th>
+                                <th>Cliente</th>
+                                <th>Monto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% c.ventas.forEach(function(v) { %>
+                                <tr>
+                                    <td><%= new Date(v.fecha_venta).toLocaleDateString('es-EC') %></td>
+                                    <td><%= v.producto %></td>
+                                    <td><%= v.cliente %></td>
+                                    <td>$<%= v.monto.toFixed(2) %></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </details>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <div class="sin-resultados">
+            <h3>📭 Sin resultados</h3>
+            <p>No se encontraron ventas en el período seleccionado. Intenta con otras fechas.</p>
+        </div>
+    <% } %>
+<% } %>
+
+<%- include('partials/footer') %>

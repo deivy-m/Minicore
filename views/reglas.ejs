@@ -1,0 +1,55 @@
+<%- include('partials/header') %>
+
+<div class="page-title">
+    <h1>📋 Reglas de Comisión</h1>
+    <p>Reglas de negocio aplicadas según la sumatoria de ventas en el período.</p>
+</div>
+
+<div class="table-box">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Monto Mínimo</th>
+                <th>Monto Máximo</th>
+                <th>Porcentaje</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% reglas.forEach(function(regla) { %>
+                <tr>
+                    <td><%= regla.id %></td>
+                    <td><strong><%= regla.nombre %></strong></td>
+                    <td>$<%= regla.monto_min.toFixed(2) %></td>
+                    <td><%= regla.monto_max ? '$' + regla.monto_max.toFixed(2) : 'Sin límite' %></td>
+                    <td><span class="badge badge-blue"><%= regla.porcentaje_comision %>%</span></td>
+                    <td>
+                        <span class="badge <%= regla.activo ? 'badge-green' : 'badge-gray' %>">
+                            <%= regla.activo ? 'Activa' : 'Inactiva' %>
+                        </span>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+<div class="card">
+    <h3>🎯 Lógica de Cálculo</h3>
+    <p style="color:#475569; margin: 10px 0; line-height: 1.6;">
+        El sistema evalúa el total acumulado de ventas que realizó cada vendedor en las fechas indicadas y aplica la regla correspondiente:
+    </p>
+    <ul style="color:#475569; margin-left: 20px; line-height: 1.8;">
+        <li><strong>Comisión Básica (6%):</strong> Ventas entre $0 y $600.</li>
+        <li><strong>Comisión Media (8%):</strong> Ventas entre $601 y $800.</li>
+        <li><strong>Comisión Alta (10%):</strong> Ventas entre $801 y $1,000.</li>
+        <li><strong>Comisión Premium (15%):</strong> Ventas superiores a $1,000.</li>
+    </ul>
+    <div style="margin-top: 16px;">
+        <a href="/comisiones" class="btn btn-primary">⚡ Ir a Calcular Comisiones</a>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

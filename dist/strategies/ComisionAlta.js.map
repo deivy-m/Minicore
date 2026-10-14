@@ -1,0 +1,1 @@
+{"version":3,"file":"ComisionAlta.js","sourceRoot":"","sources":["../../src/strategies/ComisionAlta.ts"],"names":[],"mappings":";;;AAGA,MAAa,YAAY;IACvB,QAAQ,CAAC,KAAa;QACpB,OAAO,KAAK,GAAG,IAAI,CAAC,CAAC,MAAM;IAC7B,CAAC;IAED,OAAO;QACL,OAAO,eAAe,CAAC;IACzB,CAAC;IAED,QAAQ;QACN,OAAO,eAAe,CAAC;IACzB,CAAC;IAED,aAAa;QACX,OAAO,IAAI,CAAC;IACd,CAAC;CACF;AAhBD,oCAgBC"}

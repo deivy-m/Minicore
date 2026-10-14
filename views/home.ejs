@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+
+<div class="hero">
+    <h1>🧾 Sistema de Comisiones de Ventas</h1>
+    <p>Calcula las comisiones de tus vendedores filtrando por rango de fechas.</p>
+    <a href="/comisiones" class="btn btn-primary">⚡ Calcular Comisiones</a>
+</div>
+
+<div class="stats">
+    <div class="stat-card">
+        <div class="icon">👤</div>
+        <div class="num"><%= totalVendedores %></div>
+        <div class="label">Vendedores</div>
+    </div>
+    <div class="stat-card">
+        <div class="icon">🛒</div>
+        <div class="num"><%= totalVentas %></div>
+        <div class="label">Ventas registradas</div>
+    </div>
+    <div class="stat-card">
+        <div class="icon">📋</div>
+        <div class="num"><%= totalReglas %></div>
+        <div class="label">Reglas de comisión</div>
+    </div>
+</div>
+
+<div class="card">
+    <h3>ℹ️ ¿Cómo funciona?</h3>
+    <p style="color:#475569; margin-top:10px; line-height:1.7;">
+        El sistema suma todas las ventas de cada vendedor en el período seleccionado.
+        Luego aplica la regla de comisión correspondiente según ese total acumulado.
+        Puedes filtrar por fechas y por vendedor específico.
+    </p>
+</div>
+
+<%- include('partials/footer') %>

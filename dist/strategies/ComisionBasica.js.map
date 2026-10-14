@@ -1,0 +1,1 @@
+{"version":3,"file":"ComisionBasica.js","sourceRoot":"","sources":["../../src/strategies/ComisionBasica.ts"],"names":[],"mappings":";;;AAGA,MAAa,cAAc;IACzB,QAAQ,CAAC,KAAa;QACpB,OAAO,KAAK,GAAG,IAAI,CAAC,CAAC,KAAK;IAC5B,CAAC;IAED,OAAO;QACL,OAAO,iBAAiB,CAAC;IAC3B,CAAC;IAED,QAAQ;QACN,OAAO,WAAW,CAAC;IACrB,CAAC;IAED,aAAa;QACX,OAAO,GAAG,CAAC;IACb,CAAC;CACF;AAhBD,wCAgBC"}
