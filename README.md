@@ -1,6 +1,8 @@
 # 🧾 MINICORE - Sistema de Comisiones de Ventas
 link video: https://youtu.be/MsuRi2VNWmM
+
 link deploy: https://minicore-90hj.onrender.com
+
 [![Node.js](https://img.shields.io/badge/Node.js-v18%2B-green?logo=node.js)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-4.21.2-lightgrey?logo=express)](https://expressjs.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue?logo=typescript)](https://www.typescriptlang.org/)
