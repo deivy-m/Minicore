@@ -1,5 +1,6 @@
 # 🧾 MINICORE - Sistema de Comisiones de Ventas
-
+link video: https://youtu.be/MsuRi2VNWmM
+link deploy: https://minicore-90hj.onrender.com
 [![Node.js](https://img.shields.io/badge/Node.js-v18%2B-green?logo=node.js)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-4.21.2-lightgrey?logo=express)](https://expressjs.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue?logo=typescript)](https://www.typescriptlang.org/)
@@ -105,15 +106,6 @@ El proyecto sigue una estricta separación de responsabilidades:
 
 ---
 
-## 🔧 Correcciones Realizadas sobre la Versión Anterior
-
-- ✅ **Regla #4 corregida**: En versiones anteriores figuraba repetida como "Comisión Alta". Se renombró formalmente a **"Comisión Premium"** (15%).
-- ✅ **Eliminación de detección frágil por Strings**: El porcentaje de comisión se deducía mediante búsqueda de texto (`includes('%')`). Se incorporó el método `getPorcentaje(): number` al contrato `IComisionStrategy`.
-- ✅ **Tipado estricto e interfaces**: `VentaRepository` ahora implementa `IVentaRepository` con tipos concretos en lugar de `any[]`.
-- ✅ **Depuración de código muerto**: Se eliminaron archivos no utilizados (`VentaService.ts`, conexiones inactivas a SQL Server) garantizando compilación con `0` errores de TypeScript.
-- ✅ **Frontend optimizado y simplificado**: Se eliminaron dependencias innecesarias de librerías cliente complejas, ofreciendo una interfaz rápida, limpia y adaptable a móviles.
-
----
 
 ## 💻 Instalación y Ejecución Local
 
